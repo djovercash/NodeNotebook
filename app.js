@@ -21,3 +21,6 @@ const notes = require('./notes.js')
 
 var results = notes.addNote();
 console.log(results);
+
+var addResults = notes.add(2, 3);
+console.log(addResults)
