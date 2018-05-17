@@ -12,22 +12,28 @@ console.log('Command: ', command)
 console.log('Process: ',process.argv)
 console.log('Yargs: ', argv)
 
+
 if (command === 'add') {
   var note = notes.addNote(argv.title, argv.body)
   if (note) {
     console.log("Note saved")
-    console.log("~~~~")
-    console.log(`Title: ${note.title}`)
-    console.log(`Body: ${note.body}`)
+    notes.displayNote(note)
   } else {
     console.log("Note not saved. Duplicate title")
   }
 } else if (command === 'list') {
-  notes.getAll();
+  var noteArr = notes.getAll();
+  for (let note of noteArr) {
+    notes.displayNote(note)
+  }
 } else if (command === 'read') {
   var note = notes.getNote(argv.title)
-  var message = note ? `Title: ${note.title}. Body: ${note.body}` : "Note note find"
-  console.log(message)
+  if (note) {
+    console.log("Note found")
+    notes.displayNote(note)
+  } else {
+    console.log("Note not found")
+  }
 } else if (command === 'remove') {
   var result = notes.removeNote(argv.title)
   var message = result ? "Note removed" : "No note removed"
@@ -35,6 +41,8 @@ if (command === 'add') {
 } else {
   console.log("Command not recognized")
 }
+
+
 
 
 
