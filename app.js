@@ -18,9 +18,11 @@ const notes = require('./notes.js')
 //   }
 // })
 
+// Calling a function from notes.js
+// var results = notes.addNote();
+// console.log(results);
+//
+// var addResults = notes.add(2, 3);
+// console.log(addResults)
 
-var results = notes.addNote();
-console.log(results);
-
-var addResults = notes.add(2, 3);
-console.log(addResults)
+const _ = require('lodash')
