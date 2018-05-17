@@ -1,4 +1,4 @@
-console.log("Starting App")
+console.log("starting app.js")
 
 
 
@@ -20,3 +20,5 @@ fs.appendFile('greetingsUser.txt', `Hello, ${user.username}`, function(err) {
     console.log('Unable to write to file')
   }
 })
+
+const notes = require('./notes.js')
