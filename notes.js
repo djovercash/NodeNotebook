@@ -33,13 +33,20 @@ var getAll = () => {
 }
 
 var getNote = (title) => {
-  console.log("Getting note:", title)
+  let notes = fetchNotes()
+  let note = notes.find((note) => note.title === title)
+  return note
 }
 
 var removeNote = (title) => {
   let notes = fetchNotes()
   let nonRemovedNotes = notes.filter((note) => note.title !== title)
   saveNotes(nonRemovedNotes)
+  if (notes.length !== nonRemovedNotes.length) {
+    return true
+  } else {
+    return false
+  }
 }
 
 module.exports = {
